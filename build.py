@@ -55,7 +55,7 @@ def main():
                 The second line contains \( n \) integers \( a_1, a_2, ..., a_n \) \((-10^9 ≤ a_i ≤ 10^9)\).
             """,
             "output_description": r"""
-                If there exists a pair \( (i,j) (i < j) \) such that \( a_i + a_j = t) \), output two integers representing the indices \( i \) and \( j \).
+                If there exists a pair \( (i,j) (i < j) \) such that \( a_i + a_j = t \), output two integers representing the indices \( i \) and \( j \).
                 If no such pair exists, output <code>IMPOSSIBLE</code>.
             """,
             "examples": [
