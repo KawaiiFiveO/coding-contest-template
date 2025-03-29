@@ -18,4 +18,4 @@ Set the contest end time in `script.js`:
 const endTime = new Date("2025-04-01T00:00:00Z").getTime();
 ```
 
-Deploy as a static webpage from the `/build` directory.
+Deploy as a static webpage from the `/deploy` directory.
