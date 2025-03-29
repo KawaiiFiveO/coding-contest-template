@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coding Contest Template</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Placeholder Contest Title</h1>
+      <div id="timer">Time Left: --:--:--</div>
+    </header>
+
+    <nav class="tabs">
+      <button data-tab="overview" class="active">Overview</button>
+      
+      <button data-tab="A">Problem A</button>
+      
+      <button data-tab="B">Problem B</button>
+      
+      <button data-tab="help">Help</button>
+    </nav>
+
+    <main>
+      <!-- Overview Section -->
+      <section id="overview" class="tab-content active">
+        <h2>Problem List</h2>
+        <table class="problem-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Input/Output</th>
+              <th>Time Limit</th>
+              <th>Memory Limit</th>
+              <th>Points</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td><a href="#" onclick="switchTab('A')">A</a></td>
+              <td>Quick Maths</td>
+              <td>standard input/output</td>
+              <td>1 s</td>
+              <td>256 MB</td>
+              <td>100</td>
+            </tr>
+            
+            <tr>
+              <td><a href="#" onclick="switchTab('B')">B</a></td>
+              <td>Two Sum</td>
+              <td>standard input/output</td>
+              <td>2 s</td>
+              <td>512 MB</td>
+              <td>150</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Problem Sections -->
+      
+      <section id="A" class="tab-content">
+        <h2>A. Quick Maths</h2>
+        <div class="limits">
+          time limit per test: 1 second<br>
+          memory limit per test: 256 megabytes
+        </div>
+        <p>Given two integers \( A \) and \( B \), print their sum.</p>
+        <h3>Input</h3>
+        <p>The first line contains two integers \( A \) and \( B \) \( (0 ≤ A ≤ 100, 0 ≤ B ≤ 100)\).</p>
+        <h3>Output</h3>
+        <p>Print the sum of \( A \) and \( B \).</p>
+        <h3>Example</h3>
+        
+          <p><strong>Input</strong></p>
+          <pre>2 2</pre>
+          <p><strong>Output</strong></p>
+          <pre>4</pre>
+        
+          <p><strong>Input</strong></p>
+          <pre>9 10</pre>
+          <p><strong>Output</strong></p>
+          <pre>19</pre>
+        
+        
+        <h3>Explanation</h3>
+        <p><p>In the first example, 2 + 2 = 4.</p></p>
+        
+      </section>
+      
+      <section id="B" class="tab-content">
+        <h2>B. Two Sum</h2>
+        <div class="limits">
+          time limit per test: 2 seconds<br>
+          memory limit per test: 512 megabytes
+        </div>
+        <p>You are given an array of \( n \) integers and an integer \( t \). Your task is to determine whether there exist two distinct elements in the array such that their sum equals \( t \).</p><p>If such a pair exists, output the 1-indexed positions of any such pair. If there are multiple valid answers, output any of them. If no such pair exists, output <code>IMPOSSIBLE</code>.</p>
+        <h3>Input</h3>
+        <p>The first line contains two integers \( n \) and \( t \) \( (2 ≤ n ≤ 10^5, -10^9 ≤ t ≤ 10^9)\).</p><p>The second line contains \( n \) integers \( a_1, a_2, ..., a_n \) \((-10^9 ≤ a_i ≤ 10^9)\).</p>
+        <h3>Output</h3>
+        <p>If there exists a pair \( (i,j) (i < j) \) such that \( a_i + a_j = t) \), output two integers representing the indices \( i \) and \( j \).</p><p>If no such pair exists, output <code>IMPOSSIBLE</code>.</p>
+        <h3>Example</h3>
+        
+          <p><strong>Input</strong></p>
+          <pre>4 9
+2 7 11 15</pre>
+          <p><strong>Output</strong></p>
+          <pre>1 2</pre>
+        
+        
+      </section>
+      
+
+      <!-- Help Section -->
+      <section id="help" class="tab-content">
+        <h2>Help: Standard Input/Output</h2>
+        <p>
+          In programming competitions, problems usually require you to read from <strong>standard input</strong> and write to <strong>standard output</strong>.
+        </p>
+        <h3>What is Standard Input?</h3>
+        <p>
+          This is the input your program reads from the console. You don't need to open any files or create a GUI. Just read using language-specific commands like <code>cin</code> (C++) or <code>input()</code> (Python).
+        </p>
+        <h3>What is Standard Output?</h3>
+        <p>
+          This is where your program writes its answers — again, through the console. Use commands like <code>cout</code> (C++) or <code>print()</code> (Python). Make sure the output matches the required format exactly.
+        </p>
+        <h3>Sample Problem:</h3>
+        <p>Given two integers \( A \) and \( B \), print their sum.</p>
+        <h3>Input</h3>
+        <pre>3 4</pre>
+        <h3>Output</h3>
+        <pre>7</pre>
+        <h3>Sample Solution Template</h3>
+        <p><strong>In C++</strong></p>
+        <pre>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int A, B;
+    cin >> A >> B; // Read two integers
+    cout << A + B << endl; // Print their sum
+    return 0;
+}</pre>
+        <p><strong>In Python</strong></p>
+        <pre># Read input, split by space, convert to int
+A, B = map(int, input().split())
+print(A + B)</pre>
+      </section>
+
+    </main>
+
+    <footer>
+      <p>© 2025 TsunDev. All problems are fictional. Fight me.</p>
+    </footer>
+  </div>
+</body>
+</html>

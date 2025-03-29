@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{ site_title }}</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>{{ contest_title }}</h1>
+      <div id="timer">Time Left: --:--:--</div>
+    </header>
+
+    <nav class="tabs">
+      <button data-tab="overview" class="active">Overview</button>
+      {% for problem in problems %}
+      <button data-tab="{{ problem.id }}">Problem {{ problem.id }}</button>
+      {% endfor %}
+      <button data-tab="help">Help</button>
+    </nav>
+
+    <main>
+      <!-- Overview Section -->
+      <section id="overview" class="tab-content active">
+        <h2>Problem List</h2>
+        <table class="problem-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Input/Output</th>
+              <th>Time Limit</th>
+              <th>Memory Limit</th>
+              <th>Points</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for problem in problems %}
+            <tr>
+              <td><a href="#" onclick="switchTab('{{ problem.id }}')">{{ problem.id }}</a></td>
+              <td>{{ problem.name }}</td>
+              <td>{{ problem.io }}</td>
+              <td>{{ problem.time_limit }} s</td>
+              <td>{{ problem.memory_limit }} MB</td>
+              <td>{{ problem.points }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Problem Sections -->
+      {% for problem in problems %}
+      <section id="{{ problem.id }}" class="tab-content">
+        <h2>{{ problem.id }}. {{ problem.name }}</h2>
+        <div class="limits">
+          time limit per test: {{ problem.time_limit }} {% if problem.time_limit == "1" %}second{% else %}seconds{% endif %}<br>
+          memory limit per test: {{ problem.memory_limit }} megabytes
+        </div>
+        {{ problem.description | nl2p | safe }}
+        <h3>Input</h3>
+        {{ problem.input_description | nl2p | safe }}
+        <h3>Output</h3>
+        {{ problem.output_description | nl2p | safe }}
+        <h3>Example</h3>
+        {% for example in problem.examples %}
+          <p><strong>Input</strong></p>
+          <pre>{{ example.input }}</pre>
+          <p><strong>Output</strong></p>
+          <pre>{{ example.output }}</pre>
+        {% endfor %}
+        {% if problem.explanation %}
+        <h3>Explanation</h3>
+        <p>{{ problem.explanation | nl2p | safe }}</p>
+        {% endif %}
+      </section>
+      {% endfor %}
+
+      <!-- Help Section -->
+      <section id="help" class="tab-content">
+        <h2>Help: Standard Input/Output</h2>
+        <p>
+          In programming competitions, problems usually require you to read from <strong>standard input</strong> and write to <strong>standard output</strong>.
+        </p>
+        <h3>What is Standard Input?</h3>
+        <p>
+          This is the input your program reads from the console. You don't need to open any files or create a GUI. Just read using language-specific commands like <code>cin</code> (C++) or <code>input()</code> (Python).
+        </p>
+        <h3>What is Standard Output?</h3>
+        <p>
+          This is where your program writes its answers — again, through the console. Use commands like <code>cout</code> (C++) or <code>print()</code> (Python). Make sure the output matches the required format exactly.
+        </p>
+        <h3>Sample Problem:</h3>
+        <p>Given two integers \( A \) and \( B \), print their sum.</p>
+        <h3>Input</h3>
+        <pre>3 4</pre>
+        <h3>Output</h3>
+        <pre>7</pre>
+        <h3>Sample Solution Template</h3>
+        <p><strong>In C++</strong></p>
+        <pre>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int A, B;
+    cin >> A >> B; // Read two integers
+    cout << A + B << endl; // Print their sum
+    return 0;
+}</pre>
+        <p><strong>In Python</strong></p>
+        <pre># Read input, split by space, convert to int
+A, B = map(int, input().split())
+print(A + B)</pre>
+      </section>
+
+    </main>
+
+    <footer>
+      <p>© {{ copyright }}</p>
+    </footer>
+  </div>
+</body>
+</html>
